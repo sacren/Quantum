@@ -1,13 +1,15 @@
 <script setup lang="ts">
-    type Pizza = {
+    type OrderStatus = 'ordered' | 'completed' | 'cancelled'
+
+    interface Pizza {
         name: string
         price: number
     }
 
-    type Order = {
+    interface Order {
         id: number
         pizza: Pizza
-        status: string
+        status: OrderStatus
     }
 
     const menu: Pizza[] = [
