@@ -1,14 +1,16 @@
 <script setup lang="ts">
     type OrderStatus = 'ordered' | 'completed' | 'cancelled'
 
-    interface Pizza {
+    interface Identifiable {
         id: number
+    }
+
+    interface Pizza extends Identifiable {
         name: string
         price: number
     }
 
-    interface Order {
-        id: number
+    interface Order extends Identifiable {
         pizza: Pizza
         status: OrderStatus
     }
