@@ -2,6 +2,7 @@
     type OrderStatus = 'ordered' | 'completed' | 'cancelled'
 
     interface Pizza {
+        id: number
         name: string
         price: number
     }
@@ -12,16 +13,17 @@
         status: OrderStatus
     }
 
-    const menu: Pizza[] = [
-        { name: 'Margherita', price: 5.99 },
-        { name: 'Veggie', price: 16.99 },
-        { name: 'Pepperoni', price: 6.99 },
-        { name: 'Hawaiian', price: 7.99 },
-    ]
-
     let cashInRegister: number = 100
     let orderQueue: Order[] = []
     let nextOrderId: number = 1
+    let nextPizzaId: number = 1
+
+    const menu: Pizza[] = [
+        { id: nextPizzaId++, name: 'Margherita', price: 5.99 },
+        { id: nextPizzaId++, name: 'Veggie', price: 16.99 },
+        { id: nextPizzaId++, name: 'Pepperoni', price: 6.99 },
+        { id: nextPizzaId++, name: 'Hawaiian', price: 7.99 },
+    ]
 
     function addNewPizza(newPizza: Pizza): void {
         menu.push(newPizza)
@@ -56,9 +58,9 @@
         order.status = 'completed'
     }
 
-    addNewPizza({ name: 'Meat Lovers', price: 9.99 })
-    addNewPizza({ name: 'Spicy Chicken', price: 19.99 })
-    addNewPizza({ name: 'Sweet Saussage', price: 29.99 })
+    addNewPizza({ id: nextPizzaId++, name: 'Meat Lovers', price: 9.99 })
+    addNewPizza({ id: nextPizzaId++, name: 'Spicy Chicken', price: 19.99 })
+    addNewPizza({ id: nextPizzaId++, name: 'Sweet Saussage', price: 29.99 })
 
     const newOrder: Order = placeOrder('Hawaiian')
 
