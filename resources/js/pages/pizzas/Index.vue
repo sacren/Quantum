@@ -66,10 +66,6 @@
 
     const newOrder: Order = placeOrder('Hawaiian')
 
-    if (!orderQueue) {
-        throw new Error('No orders yet.')
-    }
-
     completeOrder(newOrder)
 
     console.log(menu)
