@@ -62,6 +62,26 @@
         order.status = 'completed'
     }
 
+    /**
+     * Retrieves a pizza by ID (number) or name (string, case-insensitive).
+     * @throws {Error} If no pizza matches the identifier.
+     */
+    function getPizzaDetail(identifier: number | string): Pizza {
+        let pizza: Pizza | undefined
+
+        if (typeof identifier === 'string') {
+            pizza = menu.find((p) => p.name.toLowerCase() === identifier.toLowerCase())
+        } else  {
+            pizza = menu.find((p) => p.id === identifier)
+        }
+
+        if (!pizza) {
+            throw new Error('Pizza not found')
+        }
+
+        return pizza
+    }
+
     addNewPizza('Meat Lovers', 9.99)
     addNewPizza('Spicy Chicken', 19.99)
     addNewPizza('Sweet Saussage', 29.99)
@@ -73,6 +93,8 @@
     console.log(menu)
     console.log(cashInRegister)
     console.log(orderQueue)
+    console.log(getPizzaDetail(1))
+    console.log(getPizzaDetail('Hawaiian'))
 </script>
 
 <template>
