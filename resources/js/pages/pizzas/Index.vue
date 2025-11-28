@@ -27,8 +27,10 @@
         { id: nextPizzaId++, name: 'Hawaiian', price: 7.99 },
     ]
 
-    function addNewPizza(newPizza: Pizza): void {
+    function addNewPizza(name: string, price: number): Pizza {
+        const newPizza: Pizza = { id: nextPizzaId++, name, price }
         menu.push(newPizza)
+        return newPizza
     }
 
     function placeOrder(pizzaName: string): Order {
@@ -60,9 +62,9 @@
         order.status = 'completed'
     }
 
-    addNewPizza({ id: nextPizzaId++, name: 'Meat Lovers', price: 9.99 })
-    addNewPizza({ id: nextPizzaId++, name: 'Spicy Chicken', price: 19.99 })
-    addNewPizza({ id: nextPizzaId++, name: 'Sweet Saussage', price: 29.99 })
+    addNewPizza('Meat Lovers', 9.99)
+    addNewPizza('Spicy Chicken', 19.99)
+    addNewPizza('Sweet Saussage', 29.99)
 
     const newOrder: Order = placeOrder('Hawaiian')
 
