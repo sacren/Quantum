@@ -34,7 +34,7 @@
     }
 
     function placeOrder(pizzaName: string): Order {
-        const selectedPizza: Pizza | undefined = menu.find((pizza) => pizza.name === pizzaName)
+        const selectedPizza: Pizza | undefined = menu.find((pizza) => pizza.name.toLowerCase() === pizzaName.toLowerCase())
 
         if (!selectedPizza) {
             throw new Error('Pizza not found')
