@@ -84,7 +84,7 @@
 
     addNewPizza('Meat Lovers', 9.99)
     addNewPizza('Spicy Chicken', 19.99)
-    addNewPizza('Sweet Saussage', 29.99)
+    addNewPizza('Sweet Pineapple', 29.99)
 
     const newOrder: Order = placeOrder('Hawaiian')
 
