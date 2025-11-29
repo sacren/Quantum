@@ -7,11 +7,13 @@
         role: string
     }
 
+    let nextUserId: number = 1
+
     const users: User[] = [
-        { id: 1, username: 'john_doe', role: 'member' },
-        { id: 2, username: 'jane_smith', role: 'contributor' },
-        { id: 3, username: 'bob_jones', role: 'admin' },
-        { id: 4, username: 'sarah_wilson', role: 'member' },
+        { id: nextUserId++, username: 'john_doe', role: 'member' },
+        { id: nextUserId++, username: 'jane_smith', role: 'contributor' },
+        { id: nextUserId++, username: 'bob_jones', role: 'admin' },
+        { id: nextUserId++, username: 'sarah_wilson', role: 'member' },
     ]
 
     function updateUser(id: number, updates: UpdatedUser): User {
@@ -26,8 +28,20 @@
         return user
     }
 
+    function addNewUser(newUser: Omit<User, 'id'>): User {
+        const user: User = {
+            id: nextUserId++,
+            ...newUser,
+        }
+
+        users.push(user)
+        return user
+    }
+
     updateUser(1, { username: 'charlie_brown' })
     updateUser(4, { role: 'contributor' })
+
+    addNewUser({ username: 'david_ross', role: 'admin' })
 
     console.log(users)
 </script>
