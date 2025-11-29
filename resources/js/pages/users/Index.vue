@@ -1,6 +1,4 @@
 <script setup lang="ts">
-    type UpdatedUser = Partial<User>
-
     interface User {
         id: number
         username: string
@@ -16,7 +14,7 @@
         { id: nextUserId++, username: 'sarah_wilson', role: 'member' },
     ]
 
-    function updateUser(id: number, updates: UpdatedUser): User {
+    function updateUser(id: number, updates: Partial<User>): User {
         const user: User | undefined = users.find((u) => u.id === id)
 
         if (!user) {
