@@ -86,9 +86,20 @@
         return pizza
     }
 
+    /**
+     * Performs the same mutation as array.push(item), but discards the return
+     * value and provides explicit generic type safety.
+     */
+    function pushToArray<T>(array: T[], item: T): void {
+        array.push(item)
+    }
+
     addNewPizza({ name: 'Meat Lovers', price: 9.99 })
     addNewPizza({ name: 'Spicy Chicken', price: 19.99 })
     addNewPizza({ name: 'Sweet Pineapple', price: 29.99 })
+
+    pushToArray<Pizza>(menu, { id: nextPizzaId++, name: 'Cheese Bacon', price: 9.99 })
+    pushToArray<Order>(orderQueue, { id: nextOrderId++, pizza: menu[2], status: 'cancelled' })
 
     const newOrder: Order = placeOrder('Hawaiian')
 
