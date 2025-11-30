@@ -1,9 +1,13 @@
 <script setup lang="ts">
+    import { type Ref, ref } from 'vue'
+
     interface User {
         id: number
         username: string
         role: string
     }
+
+    const name: Ref<string> = ref('Pizzeria')
 
     let nextUserId: number = 1
 
@@ -46,7 +50,7 @@
 
 <template>
     <div class="p-6 max-w-2xl mx-auto">
-        <h1 class="text-3xl font-bold text-rose-600 mb-2">Pizzas 🍕</h1>
+        <h1 class="text-3xl font-bold text-rose-600 mb-2">{{ name }} 🍕</h1>
         <p class="text-gray-700">
         Welcome to our pizzeria user page!
         </p>
