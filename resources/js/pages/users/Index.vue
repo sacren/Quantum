@@ -1,5 +1,5 @@
 <script setup lang="ts">
-    import { type Ref, ref } from 'vue'
+    import { ref } from 'vue'
 
     interface User {
         id: number
@@ -7,7 +7,7 @@
         role: string
     }
 
-    const name: Ref<string> = ref('Pizzeria')
+    const name = ref<string>('Pizzeria')
 
     let nextUserId: number = 1
 
