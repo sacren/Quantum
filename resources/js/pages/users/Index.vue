@@ -8,6 +8,8 @@
     }
 
     const name = ref<string>('Pizzeria')
+    const emoji = ref<string>('🍕')
+    const message = ref<string>('Welcome to our pizzeria user page!')
 
     let nextUserId: number = 1
 
@@ -50,9 +52,13 @@
 
 <template>
     <div class="p-6 max-w-2xl mx-auto">
-        <h1 class="text-3xl font-bold text-rose-600 mb-2">{{ name }} 🍕</h1>
+        <h1 class="text-3xl font-bold text-rose-600 mb-2">
+            {{ name }}
+            {{ emoji }}
+            {{ emoji }}
+        </h1>
         <p class="text-gray-700">
-        Welcome to our pizzeria user page!
+            {{ message }}
         </p>
     </div>
 </template>
