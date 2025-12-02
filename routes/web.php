@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\StockController;
 use App\Http\Controllers\PizzaController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
@@ -13,4 +14,7 @@ Route::resource('pizzas', PizzaController::class)
     ->only(['index']);
 
 Route::resource('users', UserController::class)
+    ->only(['index']);
+
+Route::resource('stocks', StockController::class)
     ->only(['index']);
