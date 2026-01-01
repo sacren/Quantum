@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\StoreQuoteRequest;
 use App\Http\Requests\UpdateQuoteRequest;
 use App\Models\Quote;
+use Inertia\Inertia;
 
 class QuoteController extends Controller
 {
@@ -13,7 +14,7 @@ class QuoteController extends Controller
      */
     public function index()
     {
-        //
+        return Inertia::render('quotes/Index');
     }
 
     /**
