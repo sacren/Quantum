@@ -23,6 +23,10 @@ const quoteList: Quote[] = [
 
 const quoteIndex = ref(0);
 const currentQuote = computed(() => quoteList[quoteIndex.value]);
+
+function showNextQuote() {
+    quoteIndex.value = (quoteIndex.value + 1) % quoteList.length;
+}
 </script>
 
 <template>
@@ -36,6 +40,7 @@ const currentQuote = computed(() => quoteList[quoteIndex.value]);
             <span class="text-slate-300 font-medium">— {{ currentQuote.author }}</span>
         </section>
         <button
+            @click="showNextQuote"
             class="mt-8 px-6 py-2 bg-slate-700 hover:bg-slate-600 text-slate-200 font-medium rounded-lg transition-colors duration-200"
         >
             Another quote
