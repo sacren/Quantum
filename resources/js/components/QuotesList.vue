@@ -39,11 +39,19 @@ function showNextQuote() {
             </div>
             <span class="text-slate-300 font-medium">— {{ currentQuote.author }}</span>
         </section>
-        <button
-            @click="showNextQuote"
-            class="mt-8 px-6 py-2 bg-slate-700 hover:bg-slate-600 text-slate-200 font-medium rounded-lg transition-colors duration-200"
-        >
-            Another quote
-        </button>
+        <div class="mt-8 flex gap-4">
+            <button
+                @click="showNextQuote"
+                class="px-6 py-2 bg-slate-700 hover:bg-slate-600 text-slate-200 font-medium rounded-lg transition-colors duration-200"
+            >
+                Another quote
+            </button>
+            <button
+                @click="showNextQuote"
+                class="px-6 py-2 bg-slate-700 hover:bg-slate-600 text-slate-200 font-medium rounded-lg transition-colors duration-200"
+            >
+                Share
+            </button>
+        </div>
     </main>
 </template>
